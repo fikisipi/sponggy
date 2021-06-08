@@ -48,9 +48,9 @@ def main():
         version, url, content_type = latest_version(platform)
         print('Downloading {} from {}'.format(version, url))
         download(url, target_path, content_type)
-        sys.stdout.write('[!] Downloaded successfully.')
+        sys.stdout.write('[!] Installed {}.'.format(version, ))
         if len(sys.argv) > 1 and not update:
-            sys.stdout.write(' Calling `caddy {}`\n\n'.format(' '.join(sys.argv[1:])))
+            sys.stdout.write(' Calling `sponggy {}`\n\n'.format(' '.join(sys.argv[1:])))
             sys.stdout.flush()
         else:
             sys.stdout.write(' To start the server, use `sponggy run`\n')

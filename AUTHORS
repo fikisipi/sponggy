@@ -1,0 +1,8 @@
+# ponddy is an unofficial tool for installing Caddy
+# from the provided releases in https://github.com/caddyserver/caddy
+Filip Dimitrovski <filip@tune.mk>
+
+# Caddy's original authors as 2021/06/08 and commit `76913b1` of are:
+Matthew Holt <Matthew.Holt@gmail.com>
+Light Code Labs <sales@lightcodelabs.com>
+Ardan Labs <info@ardanlabs.com>

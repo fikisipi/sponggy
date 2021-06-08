@@ -1,0 +1,13 @@
+.venv
+.coverage
+_build
+.DS_Store
+.vscode
+.tox
+__pycache__
+*.egg-info
+build/
+dist/
+pip-wheel-metadata/
+*.swp
+venv/

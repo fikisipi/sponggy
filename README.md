@@ -7,7 +7,7 @@ Once pip install is complete, just start the server with <code><b>sponggy run</b
 <br><br>
 <img src="https://raw.githubusercontent.com/fikisipi/sponggy/main/sponggy_screencap.gif" width="448">
 <br><br>
-It will find a proper GitHub release from <code><b>caddyserver/caddy</b></code> and put it into your script path.<br>
+It will find a GitHub release for your platform and put it into your pip executables dir.<br>
 You can use <code>sponggy <b>&lt;cmd&gt;</b></code> with any usual command (<code><b>help/start/stop/upgrade/...</b></code>) and Caddyfiles.
 </p>
 

@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  demo-run:
-    runs-on: macos-11
+  osx-demo-run:
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install package

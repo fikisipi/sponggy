@@ -9,7 +9,12 @@ def current_platform() -> str:
     import platform
     os = platform.system().lower()
     machine = platform.machine().lower()
-    if machine == 'x86_64': machine = 'amd64'
+
+    # Consistent naming
+    if machine == 'x86_64':
+        machine = 'amd64'
+    if os == 'darwin':
+        os = 'mac'
 
     return "{}_{}".format(os, machine)
 
@@ -19,17 +24,21 @@ TARGET_BINARY   = 'caddy.target.exe'
 RELEASES_JSON   = 'https://api.github.com/repos/caddyserver/caddy/releases?per_page=3'
 
 def latest_version(platform) -> (str, str, str):
-    print(platform)
     import requests
-    releases_json: dict = requests.get(RELEASES_JSON).json()
+    releases_json: list = requests.get(RELEASES_JSON).json()
+
+    if len(releases_json) == 0:
+        raise ValueError('Cannot fetch GitHub Releases, got len(body) == 0.')
 
     rel: dict = releases_json[0]
     release_name: str = rel['name']
 
     asset = [x for x in rel['assets'] \
              if platform in x['name'] and x['content_type'] in SUPPORTED_TYPES]
+
     if len(asset) == 0:
-        raise ValueError('Platform not supported')
+        raise ValueError('Cannot find matching artefact with {} and type {}'.format(platform, SUPPORTED_TYPES))
+
     asset = asset[0]
     asset_url:  str = asset['browser_download_url']
     asset_type: str = asset['content_type']

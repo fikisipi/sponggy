@@ -2,9 +2,9 @@ name: OS X Test
 
 on:
   push:
-    branches: [ main ]
+    branches: [ osx ]
   pull_request:
-    branches: [ main ]
+    branches: [ osx ]
   workflow_dispatch:
 
 jobs:

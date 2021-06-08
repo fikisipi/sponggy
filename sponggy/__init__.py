@@ -22,6 +22,7 @@ SUPPORTED_TYPES = ('application/zip', 'application/gzip')
 TARGET_LICENSE  = 'caddy.LICENSE'
 TARGET_BINARY   = 'caddy.target.exe'
 RELEASES_JSON   = 'https://api.github.com/repos/caddyserver/caddy/releases?per_page=3'
+PKG_NAME        = 'sponggy'
 
 def latest_version(platform) -> (str, str, str):
     import requests
@@ -47,7 +48,7 @@ def latest_version(platform) -> (str, str, str):
 
 
 def main():
-    target_path = pkg_resources.resource_filename('sponggy', TARGET_BINARY)
+    target_path = pkg_resources.resource_filename(PKG_NAME, TARGET_BINARY)
 
     update = False
     if len(sys.argv) == 2 and sys.argv[1] in ('update', 'upgrade', 'install'):

@@ -5,6 +5,7 @@ import tarfile
 import io
 import os
 import pkg_resources
+from . import PKG_NAME
 
 def download(url, target_file, content_type='application/zip', show_progress=True):
     zip_raw = io.BytesIO()
@@ -62,7 +63,7 @@ def write_caddy_license(archive, method):
             license = archive.extractfile('LICENSE').read()
     except:
         return False
-    target_path = pkg_resources.resource_filename('sponggy', 'caddy.LICENSE')
+    target_path = pkg_resources.resource_filename(PKG_NAME, 'caddy.LICENSE')
     with open(target_path, 'wb') as f:
         f.write(license)
     return True

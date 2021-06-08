@@ -19,6 +19,7 @@ TARGET_BINARY   = 'caddy.target.exe'
 RELEASES_JSON   = 'https://api.github.com/repos/caddyserver/caddy/releases?per_page=3'
 
 def latest_version(platform) -> (str, str, str):
+    print(platform)
     import requests
     releases_json: dict = requests.get(RELEASES_JSON).json()
 
